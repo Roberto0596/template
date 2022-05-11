@@ -1,0 +1,49 @@
+<div class="wrapper">
+
+	<app-header></app-header>
+	<app-aside></app-aside>
+
+	<div class="content-wrapper" style="min-height: 1602px;">
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Bienvenido {{userData.name}}</h1>
+					</div>
+				</div>
+			</div>
+		</section>
+	
+		<section class="content">
+	
+			<!-- Default box -->
+			<div class="card">
+
+				<div class="card-header">
+					<h3 class="card-title">Consulta de cuentas</h3>
+				</div>
+				
+				<div class="card-body">
+
+					<div class="row">
+						<div *ngFor="let account of accounts" (click)="getMovement(account)" (item)="account" class="col-md-3 hoverAccount">
+							<div class="card">
+								<div class="card-body">
+									<h4>Cuenta: {{account.number}}</h4>
+									<div class="accountInfo">
+										<p class="balance"><span>Balance: </span>{{account.balance | currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>	
+		</section>
+
+	</div>
+
+	<app-footer></app-footer>
+	
+</div>
